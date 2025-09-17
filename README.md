@@ -148,7 +148,7 @@ docker exec poste bash -c 'sed -i "s@gzip\s\+on\s*;@gzip off;@g" /etc/nginx/ngin
         }
 
         location /admin/ {
-            proxy_pass              http://poste/;
+            proxy_pass              http://poste;
             proxy_set_header Host   $host;
             proxy_hide_header Via;
             proxy_hide_header X-Varnish;
@@ -160,5 +160,10 @@ docker exec poste bash -c 'sed -i "s@gzip\s\+on\s*;@gzip off;@g" /etc/nginx/ngin
             sub_filter_once  off;
             sub_filter '"/webmail"' '"/"';
         }
+
+        # # Block access to admin API and installation endpoints
+        # location ~ ^/admin/(api|install) {
+        #     return 404;
+        # }
     }
 ```

@@ -1,17 +1,46 @@
-# analogic/poste.io
+# sharky/poste.io
+
+这是一个基于 `analogic/poste.io` 构建的，邮件服务器+Web客户端，在官方的基础上做了一些简单的修改。
 
 ## 修改说明
 
-1. 补充了中文翻译
-2. 更换了Logo
-3. 修改了密钥登录按钮样式(增加图标和文字直接的间隙)
+**webmail端：**  
+
+1. 补充了缺失的中文翻译
+2. 更换了Logo，你也可以换成自己喜欢的图片后再构建
+3. 修改了密钥登录按钮样式，在图标和文字之间增加间隙，看起来更舒服
+
+**admin端：**  
+
+1. 增加了中文语言文件，以支持中文
+2. 隐藏了PRO菜单，使界面更加清爽
+3. 修改了密钥登录按钮样式，在图标和文字之间增加间隙，看起来更舒服
+
+## 构建
 
 ```bash
 docker build -t my-poste .
 ```
+
+## 展示
+
+### webmail
+
+![webmail](/example/example-webmail1.jpeg)
+![webmail](/example/example-webmail2.jpeg)
+![webmail](/example/example-webmail3.jpeg)
+
+### admin
+
+![webmail](/example/example-admin1.jpeg)
+![webmail](/example/example-admin2.jpeg)
+![webmail](/example/example-admin3.jpeg)
+
 ## 示例
 
 ### 示例一
+
+使用host网络映射端口
 
 ```bash
 docker run -d \
@@ -38,6 +67,8 @@ docker run -d \
 
 ### 示例二
 
+如果你像我一样，不接收邮件，只用来发送邮件，可以不映射端口，用nginx容器反向代理
+
 ```bash
 docker run -d \
     --name poste \
@@ -53,7 +84,7 @@ docker run -d \
     my-poste:latest
 ```
 
-### 将 /webmail 重写到 /
+### 进阶：将 /webmail 重写到 /
 
 这里使用另一个nginx进行反向代理，可以是nginx容器或主机上的nginx
 
@@ -126,6 +157,8 @@ docker exec poste bash -c 'sed -i "s@gzip\s\+on\s*;@gzip off;@g" /etc/nginx/ngin
             proxy_http_version 1.1;
             proxy_set_header Connection "";
             proxy_intercept_errors on;
+            sub_filter_once  off;
+            sub_filter '"/webmail"' '"/"';
         }
     }
 ```

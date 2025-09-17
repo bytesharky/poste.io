@@ -32,11 +32,12 @@ RUN sed -i "s@</head>@${EXTRA_CSS}\n</head>@" /opt/www/webmail/skins/elastic/tem
     sed -i "s@images/logo.svg@images/logo.png@" /opt/www/webmail/skins/elastic/templates/includes/menu.html && \
     sed -i "s@background-blend-mode:\s\+soft-light;@background-blend-mode: color-dodge;@" /opt/www/webmail/skins/elastic/watermark.html
     
-# 补充中文翻译
-COPY localization/zh_CN /opt/www/webmail/program/localization/zh_CN
-
+# 补充中文翻译（webmail）
 # 替换 LOGO
-COPY images/logo.png /opt/www/webmail/skins/elastic/images
+COPY webmail/ /opt/www/webmail/
+
+# 补充中文翻译（admin）
+COPY admin/ /opt/admin/
 
 # 定义数据卷
 VOLUME ["/data"]

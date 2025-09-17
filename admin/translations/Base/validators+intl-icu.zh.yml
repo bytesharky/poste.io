@@ -1,0 +1,5 @@
+limit:
+  invalid_relay_ip: 无效的中继IP标识符定义
+
+domain.bimi.svg_message.upload: 仅支持SVG文件
+domain.bimi.pem_message.upload: 仅支持PEM文件

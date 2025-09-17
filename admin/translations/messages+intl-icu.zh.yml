@@ -1,0 +1,30 @@
+menu:
+  dashboard: 仪表盘
+  boxes: 邮箱账户
+  domains: 虚拟域名
+  domain: 域名 {domain}
+  quarantine: 隔离区
+  guard: 黑名单/白名单
+  relaying_limits: 中继限制
+  delivery_logs: 投递日志
+  dmarc: DMARC 报告
+  server: 服务器状态
+  system: 系统设置
+  user_logs: 用户日志
+  my: 我的账户
+  api: API
+  premium: '是否需要每封发送邮件的详细日志、DMARC 报告及其他高级功能？'
+  version: 版本 <strong>{version}</strong>
+  latest_version: 可用的最新版本 <strong>{version}</strong>
+  logout: 注销
+  toggle: 切换导航
+  queue: 投递队列
+  webmail: Web 邮件
+
+search.button: 搜索
+
+pager.count_description: "{count, plural,
+  =0 {未找到结果}
+  one {找到 1 条结果}
+  other {找到 {count_formatted} 条结果}
+  }"

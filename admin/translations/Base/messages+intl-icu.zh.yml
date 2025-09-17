@@ -1,0 +1,559 @@
+sure.question: 你确定吗？
+back.to_list: 返回列表
+back.to_box: 返回邮箱
+save.changes: 保存更改
+submit: 提交
+submit_new: 提交并新建
+message: 消息
+yes: 是
+no: 否
+from: 发件人
+to: 收件人
+remove: 移除
+add_recipient: 添加收件人
+help: 帮助
+show: 显示
+edit: 编辑
+created.label: 创建时间
+updated.label: 最后更新
+no_data: 无数据
+pager.next: 下一页
+pager.previous: 上一页
+suffix.per_day: 每天
+running: 运行中
+stopped: 已停止
+loading: 加载中...
+form_errors: 表单包含验证错误
+settings.updated: 设置已更新
+
+login:
+  title: 管理员登录
+  email.label: 邮箱
+  password.label: 密码
+  remember_me.label: 记住我
+  sign_in.button: 登录
+  sign_in.passkey_button: 使用密钥登录
+
+dashboard:
+  title: 邮件服务器仪表盘
+  loading: 正在生成统计信息，请稍候...
+  users: 用户
+  domains: 域名
+  delivered: 已投递（今日）
+  space: 可用空间
+  connections: 活跃连接
+  connections.head: 实时连接
+  chart.head: 每日统计
+  users.head: 活跃用户
+  messages.head: 最新消息
+  ips.head: 远程IP
+  realtime:
+    connected: 已连接
+    disconnected: 已断开
+    waiting: 等待SMTP连接...
+
+stats:
+  title: 统计信息
+  today: 今天
+  yesterday: 昨天
+  30days: 30天
+  average: 平均值
+  day: 天
+  sent.label: 已发送邮件
+  received.label: 已接收邮件
+
+box:
+  no_box: 未找到邮箱，请先创建一个
+  change_password: 更改密码
+  change_password.title: 为 {email} 更改密码
+  show.title: 邮箱 {email}
+  update.success: 邮箱更新成功
+  update.self_disable: 登录状态下无法停用自己的账号
+  delete.success: 邮箱已删除
+  delete.button: 删除邮箱
+  delete.question: 您确定要删除该账户及其所有邮件数据吗？
+
+  reference_id.label: 参考 ID
+  reference_id.form_label: 参考 ID
+
+  list.title: 邮箱账户
+  create.button: 创建新邮箱
+  search.placeholder: 搜索账号
+  basic.head: 基本信息
+  name.label: 姓名
+  home.label: 主目录
+  disabled.label: 已停用账号
+  disabled.form_label: 停用账号
+  domain_administrator.label: 域管理员
+  internal_only.label: 仅限内部使用
+  internal_only.label_long: 仅限本地使用（不会接受来自邮件服务器外部的邮件）
+  system_administrator.label: 系统管理员
+  domain_administrator.tag: 域管理员
+  system_administrator.tag: 系统管理员
+  disabled.tag: 已停用
+  redirect.tag: 重定向
+  redirect_asterisk.tip: "通过输入星号和域（*@example.com）作为重定向目标，可重定向本地域上的所有邮箱。"
+  strict_from.label: 禁用严格的 "From"
+  edit_basic.button: 更新设置
+  edit_password.button: 更改密码
+  quota.head: 配额
+  storage.label: 存储限制
+  storage.unlimited: 不限
+  storage.usage: 当前已使用 {storage_usage}
+  count_limit.label: 邮件条数限制
+  count_limit.unlimited: 不限
+  count_limit.usage: "邮箱中有 {emails_count} 封邮件"
+  quota.edit_button: 编辑配额
+  sieve.head: SIEVE 过滤器
+  sieve.active.label: 已启用的过滤器
+  sieve.edit: 编辑过滤器
+  sieve.remove: 移除过滤器
+  sieve.no_additional: 没有额外过滤器
+
+  filter.change: 更改过滤器
+  filter.redirect: <strong>重定向</strong> 邮件到其他收件人
+  filter.copy: <strong>复制</strong> 收到的邮件到其他邮箱
+  filter.autoreply: <strong>自动回复</strong> 收到的邮件
+  filter.out_of_office: <strong>外出回复</strong> 收到的邮件
+  filter.custom: 自定义邮件过滤器
+  filter.reset: 过滤器已重置为默认
+  filter.updated: 邮件过滤器已更新
+
+  create.title: 创建新邮箱账户
+  create.no_domain: <a href="{href}">在添加新邮箱账户之前，先创建您的第一个虚拟域名</a>。
+  create.success: 邮箱创建成功
+  empty_mailbox_button: 清空邮箱
+  empty.success: 邮箱已清空
+  address.label: 邮箱
+  password.label: 密码
+  show_password.button: 显示密码
+  hide_password.button: 隐藏密码
+  generate_password.button: 生成
+  name.form_label: 姓名（仅供参考）
+  strict_from.form_label: 禁用严格的 "From" 头检查
+
+  edit.title: 编辑邮箱 {email}
+  quota.unlimited_help: 若要为用户设置不限邮箱存储，请将配额设置为 0。
+  quota.storage.form_label: 邮箱存储大小限制
+  quota.count_limit.form_label: 邮件数量限制
+
+  change_address.button: 更改地址
+  change_address.title: 更改地址 {email}
+  change_address.target: 目标邮箱地址
+
+  discard.form_label: 丢弃所有收到的邮件 ⚠️
+  discard.label: 丢弃收到的邮件
+  discard.warn: 发送到此邮箱的所有邮件将被丢弃
+  discard.tag: 丢弃来邮
+
+  disabled.warn: 发送到此邮箱的所有邮件将被拒收
+
+  webauthn:
+    head: 网页认证
+    last_used.label: 最后使用时间
+    remove: 移除此密钥
+    add: 创建密钥
+    created.label: 密钥已创建
+    never_used: 从未使用
+    empty: 还没有密钥，创建一个吧！
+
+redirect:
+  create.title: 创建新邮箱重定向
+  to.label: 重定向到
+  show.title: 重定向 {email}
+  edit.title: 编辑重定向 {email}
+  recipicients.label: 收件人
+  recipicients.edit: 编辑收件人
+  delete.button: 删除重定向
+  delete.question: 您确定要删除该重定向吗？
+  create.success: 重定向已创建
+  update.success: 重定向已成功更新
+  delete.success: 重定向已删除
+  create.button: 创建重定向（别名）
+  invalid_wildcard: 仅允许本地域名通配符 (*)
+
+filter:
+  autoreply.title: "{email} 的自动回复过滤器"
+  redirect.title: "{email} 的重定向过滤器"
+  out_of_office.title: "{email} 的外出回复过滤器"
+  copy.title: "{email} 的复制过滤器"
+  custom.title: 自定义过滤器
+  script.label: 脚本
+  message.label: 消息
+  targets.label: 目标地址过滤器
+  to.label: 收件人
+  from.label: 发件人
+  email_action:
+    label: 附加操作
+    disabled: 关闭
+    copy: 发送邮件副本
+    redirect: 重定向邮件
+    to: 目标邮箱地址
+
+domain:
+  create.success: 域名创建成功！
+  update.success: 域名更新成功
+  dkim.created: 已生成新的 DKIM 密钥，请更新您的 DNS 设置
+  dkim.deleted: DKIM 密钥已删除，请更新您的 DNS 设置
+  delete.button: 删除域名
+
+  search.placeholder: 搜索域名
+  create.title: 新虚拟域名
+  list.title: 虚拟域名列表
+  show.title: 域名 {domain}
+  edit.title: 编辑域名 {domain}
+  create.button: 创建新虚拟域名
+  boxes_count: "{count, plural,
+    =0 {无邮箱账户}
+    one {1 个账户}
+    other {{count_formatted} 个账户}
+    }"
+  forward.label: 转发
+  no_domain: 未找到域名，请先创建一个
+  basic.head: 基本信息
+  emails.label: 邮箱
+  emails.show: 显示域名邮箱 (<strong>{count}</strong>)
+  dkim.label: DKIM 密钥
+  dkim.create: 生成新密钥
+  dkim.delete: 删除密钥
+  dkim.regenerate: 重新生成密钥
+  dkim.selector_info: 选择器 <strong>{selector}</strong>，最后更新 {updated}。
+  dkim.dns: DKIM DNS 记录
+  forwarding.label: 转发器
+  bin.label: 域名回收箱（catch-all）
+  force_route.label: 强制路由
+  delete.question: 您确定要删除该域名及其所有邮箱吗？
+  diagnostics: DNS 诊断
+  edit.button: 编辑设置
+  idn.notice: "注意：您似乎正在尝试创建国际化域名（IDN）。ACE 格式："
+  forward.form_label: 启用转发
+  forward_to.form_label: 转发到域
+  force_route.form_label: 将整个域路由到另一个邮件服务器
+  force_route_host.form_label: 目标主机
+  bin.form_label: 域名回收箱（接受发送到不存在收件人的邮件并转发到目标邮箱）
+  bin_to.form_label: 目标邮箱
+  name.label: 域名
+  storage_usage: 存储
+  usage: "已使用 {storage_usage}（文件：{count_usage}）"
+
+  additional_settings: 附加设置
+  additional_settings_description: 参考 ID、域别名、路由到其他邮件服务器、出站设置等。
+
+  reference_id.label: 参考 ID
+  reference_id.form_label: 参考 ID
+
+  custom_outbound.label: 自定义出站设置
+  custom_outbound.form_label: 自定义出站 IP 或 SMTP EHLO 设置
+
+  outbound_ip.form_label: 出站 IP 地址
+  outbound_ehlo.form_label: SMTP EHLO 值
+
+  quota.unlimited_help: <p>若要为域名设置不限邮箱存储，请将配额设置为 <b>0</b>。</p><p>当域配额超出时，邮件服务器会每天向域管理员和服务器管理员发送通知。</p><p>配额每天午夜检查一次。系统会容忍 <strong>10% 的超配额使用</strong>，在此范围内域仍可接收邮件。</p><p>如果超配额使用超过 <strong>10%</strong>，将通过永久禁用域的 SMTP/SUBMISSION 来拒收所有来邮。所有域用户将会收到通知。</p>
+  quota.storage.form_label: 邮箱存储大小限制
+  quota.unlimited: 不限
+  quota.edit: 编辑存储配额
+  quota.label: 存储限制
+
+  disabled.warn: 该域名的所有来邮将被拒收
+  disabled.tag: 已停用
+  disabled.label: 接收被禁用
+  disabled.form_label: 禁用接收
+
+  bimi:
+    label: 品牌指示器（BIMI）
+    disabled: 尚未上传 logo
+    vmc.enabled: 已验证徽标证书（VMC）
+    settings: 设置 →
+
+    title: "{domain} 的消息身份识别品牌指示器（BIMI）"
+    description: BIMI（Brand Indicators for Message Identification）是一项旨在增强电子邮件认证和品牌识别的协议。它允许组织在经过认证的邮件旁显示其已验证的标志，作为接收方的视觉信任信号。通过利用 DMARC 认证机制，BIMI 有助于降低网络钓鱼风险，营造更安全的邮件环境，同时提升品牌可见性和接收方信任度。
+    delete.button: 删除
+    logo:
+      label: 图片
+      head: 品牌 SVG logo
+      location: 位置
+      empty: 尚未上传 logo
+      requirements: 请参见 <a href="https://bimigroup.org/creating-bimi-svg-logo-files/" target="_blank">BIMI logo 要求</a>。 <ul><li>SVG 格式 1.2 版本</li><li>baseProfile="tiny-ps"</li><li>最大 32 千字节</li></ul>
+      deleted: Logo 删除成功
+      uploaded: Logo 上传成功
+    upload: 上传
+    upload.button: 上传
+    vmc:
+      head: 已验证徽标证书（VMC）
+      location: 位置
+      empty: 尚未上传 VMC
+      requirements: PEM 格式，最大 32 千字节
+      label: 已验证徽标证书（VMC）
+      deleted: VMC 删除成功
+      uploaded: VMC 上传成功
+
+quarantine:
+  title: 隔离区
+  search.placeholder: 搜索字符串
+  time.label: 时间
+  without_subject: 无主题
+  delete.button: 删除
+  deliver.button: 投递
+  no_files: 无被隔离的文件
+  today: 今天
+  records_count: "{count, plural,
+      =0 {无记录}
+      one {1 条记录}
+      other {{count_formatted} 条记录}
+      }"
+
+guard:
+  last_seen: 最后出现时间
+  user.tab: 用户定义
+  user.title: SMTP 黑/白名单
+  automatic.tab: 自动生成
+  automatic.title: SMTP 黑/白名单
+  karma.tab: Karma 记录
+  karma.title: SMTP 黑/白名单
+  ip: IP
+  connections: 连接数
+  good: 良好
+  bad: 不良
+  title: SMTP 黑/白名单
+  edit.title: 编辑项
+  create.button: 创建新项
+  user_search.placeholder: 搜索 IP/网络
+  automatic_search.placeholder: 搜索 IP
+  selector: IP/网络
+  hits: 命中
+  expiration: 过期
+  comment: 描述
+  never: 从不
+  edit.button: 编辑
+  delete.button: 删除
+  deny.help: 阻止与邮件服务器的任何交互
+  pass.help: 将执行所有检测，但无论检测结果如何邮件仍会被投递。
+  delete_all: 全部删除
+  guard.button: 黑/白名单
+  type.label: 类型
+  blacklist.label: 黑名单
+  whitelist.label: 白名单
+  identifier.label: 以 CIDR 表示法的 IP 地址或网络
+  expiration.label: 过期
+  priority.label: 优先级
+  comment.label: 描述
+
+queue:
+  list.title: 投递队列
+  discard_all: 全部丢弃
+  push_all: 全部推送
+  discard_found: 丢弃已找到的
+  push_found: 推送已找到的
+  discard_selected: 丢弃所选
+  push_selected: 推送所选
+  search.placeholder: 搜索关键字
+  queued_at: 入队时间
+  next_attempt: 下次尝试
+  origin: 来源
+  discard: 丢弃
+  push: 推送
+  no_email: 没有待投递的邮件
+  search_logs: 搜索日志
+  refresh: 刷新
+  refreshing: 刷新中
+
+server:
+  title: 服务器状态
+  dnsbl: DNSBL 检查
+  dns: DNS 诊断
+  memory: 内存
+  free_space: 可用空间
+  free_inodes: Inodes
+  memory_used: 已用内存
+  memory_available: 可用内存
+  free_space.notice: 您有 {free} 可用空间
+  free_inodes.notice: 您有 {inodes}% 可用 inodes
+  available_space: 可用空间
+  available_inodes: 可用 inodes
+  used_inodes: 已用 inodes
+  used_space: 已用空间
+  load: 负载
+  processes: 进程
+  redis: Redis 数据库
+  connection:
+    refresh: 刷新数值
+    loading: 请稍候，正在处理...
+    outbound: 出站
+    inbound: 入站
+    setup: 服务设置
+    link: 连接诊断
+    title: 服务器连接诊断
+    test_result: 测试结果
+
+config:
+  title: 邮件服务器设置
+  pro_required: 需要 PRO 版
+
+  tab:
+    configuration: 配置
+    email: 邮件处理
+    spamvirus: 垃圾与病毒检测
+    tls: TLS 证书
+    advanced: 高级
+
+  head:
+    dmarc: DMARC
+    sieve: Sieve
+    general: 常规设置
+    relay: 中继网络
+    size: 最大邮件大小
+    route: 默认 SMTP 路由
+    strict_from: 严格的 "From" 头检查
+    privacy: 隐私设置
+    spam: 垃圾邮件检测
+    inbound_spam: 入站垃圾邮件检测
+    outbound_spam: 出站垃圾邮件检测
+    virus: 杀毒检测
+    inbound_virus: 入站杀毒检测
+    outbound_virus: 出站杀毒检测
+    certificate: 自定义证书
+    tls: TLS 证书
+    advanced: 高级
+    inspection: 邮件检查
+    dav: DAV（实验性）
+    ignore: 不记录连接
+
+  brand_help: "默认情况下，处处使用 'poste.io'。"
+  certificate_help: "选择一个有效的 TLS 证书。如果 Web 界面不可用，也可以将证书手动放到数据目录中。"
+  clamav_inbound_help: "所有入站邮件都会使用 ClamAV 杀毒软件扫描。"
+  clamav_outbound_help: "所有出站邮件都会使用 ClamAV 杀毒软件扫描。"
+  cleaning_help: "各种文件/日志的清理间隔。"
+  dnsbl_help: "用于检查并阻止已知发送垃圾邮件系统的 DNSBL 服务列表。注意：列出过多要检查的服务会减慢此邮件服务器的邮件投递速度。"
+  email_help: "允许的入站邮件大小。"
+  le_help: "已为域配置 Let's Encrypt"
+  privacy_help: "这些选项仅适用于经过身份验证的用户和中继网络。"
+  relay_help: "允许在不进行任何身份验证的情况下通过本邮件服务器发送邮件的 IP 地址列表。"
+  rspamd_inbound_help: "所有入站邮件将使用下列设置通过额外的垃圾邮件过滤器。"
+  rspamd_outbound_help: "如果您不信任经过身份验证的用户或中继的 IP 地址，或者避免被列入黑名单至关重要，所有出站邮件将通过额外的垃圾邮件过滤器。"
+  server_help: "必需的邮件服务器设置。此主机名必须唯一，并为该主机正确配置 DNS 记录和 TLS 证书。"
+  smtp_routes_help: "此设置将所有外发邮件通过远程邮件服务器（Smarthost）转发。"
+  srs_help: "来自非本地发送方的外发邮件的返回路径会被重写为本地的“代理”邮件以符合 SPF 规则。参见 http://www.open-spf.org/SRS/"
+  tls_help: "自定义 TLS 设置（仅限 Dovecot 和 Haraka）。请注意，错误的设置可能导致邮件服务器停止工作。"
+  strict_from_help: "所有经过身份验证用户发送的外发邮件，其 \"From:\" 头必须与经过身份验证的用户或关联的重定向（别名）相同。"
+  block_bad_connections_help: "有多次邮件投递失败记录的 IP 地址将被阻止。"
+  dmarc_help: "DMARC 报告有助于其他邮件服务器所有者识别 SPF 和 DKIM 的问题。"
+  inspection_help: ""
+  ignore_help: "忽略记录来自这些 IP 地址的连接。对于监控用途非常有用，不希望记录已知 IP 的每次连接尝试。"
+
+  enabled: 已启用
+  dmarc:
+    enabled: 发送报告
+    org_name: 组织名称
+    org_domain: 组织域名
+    sender_email: 用于发送报告的发件邮箱
+  sieve:
+    max_actions: 最大操作数（0 = 不限）
+    max_redirects: 最大重定向操作数
+  server:
+    hostname: 邮件服务器主机名
+    hostname_placeholder: mail.example.com
+    alerts: 用于发送告警的邮箱
+    alerts_placeholder: admin@example.com
+  cert:
+    private: 证书私钥
+    intermediate: 中间证书
+    public: 证书公钥
+    custom: 自定义证书
+  srs.secret: 密钥
+  cleaning:
+    head: 邮箱账户维护
+    log_rotation: 日志轮替
+    junk: "删除每个邮箱垃圾邮件文件夹中早于的邮件"
+    trash: "删除每个邮箱垃圾邮件箱中早于的邮件"
+    quarantine: 删除早于指定时间的隔离邮件
+    dmarcs: 删除早于指定时间的 DMARC 报告
+    delivery: 删除早于指定时间的投递日志
+    auth: 删除早于指定时间的认证日志
+    raw: 删除早于指定时间的原始调试日志
+  route:
+    enabled: 将所有外发邮件通过外部邮件服务器路由？
+    host: 目标 SMTP 服务器主机名
+    port: SMTP 端口
+    port_placeholder: 25/465/587
+    auth: 需要认证？
+    username: 用户名
+    password: 密码
+  dnsbl.servers: DNSBL 服务器（逗号分隔）
+  email.size: 大小限制（MB）
+  le:
+    common_name: 通用名
+    alternative_names: 备用名称
+    head: "Let's Encrypt 证书"
+    change: 更改证书设置
+    issue: "签发免费的 <strong>letsencrypt.org</strong> 证书"
+    disable: "您必须先禁用 Let's Encrypt 服务。"
+  privacy:
+    remove_x: 移除 X-* 头
+    remove_agent: 移除 User-Agent 头
+    remove_ip: "将最后的 \"Received:\" 头设置为 localhost。若未选中，您的 IP 地址将对收件人可见。"
+  relay.subnets: IP/subnet（逗号分隔）
+  relay.subnets_placeholder: "85.85.85.0/24, 44.44.44.44"
+  rspamd:
+    quarantine_enabled: 隔离邮件
+    quarantine_misbehaving: 隔离由异常连接产生的邮件
+    quarantine_score: 隔离的最小分数
+    subject: 如果为垃圾邮件则在主题前添加前缀
+    subject_score: 添加主题前缀的最小分数
+    subject_string: 添加到主题的字符串
+  block_bad_connections:
+    head: 连接阻止
+    invalid_connections_count: 无效连接计数阈值
+    counter_expiration: 计数器过期
+    block_expiration: 禁止过期
+  inspection:
+    log_subject: 记录邮件主题
+    copy_emails: 将每封邮件复制到目标地址
+    target_email: 目标地址
+  dav_debug: DAV 调试模式（日志：log/admin-app/dav.log）
+  webdav_enabled: WebDAV
+
+email:
+
+  regards: "此致，<br />
+    您的 <strong>poste<span style=\"color: silver\">.io</span></strong> 邮件服务器"
+
+  low_free_space:
+    title: "⚠️ 可用空间不足警告！"
+    body: "您好，
+      <p>/data 文件夹可用空间不足。</p><p><strong>可用空间：</strong> {free} ({use})<br /><strong>总空间：</strong> {total}</p><p>磁盘空间不足可能导致邮件服务器无法正常工作。</p>"
+
+  low_free_inodes:
+    title: "⚠️ 可用 inode 数量不足警告！"
+    body: "您好，
+      <p>/data 文件夹的 inode 数量不足。</p><p><strong>可用 inode：</strong> {free}</p><p>磁盘 inode 不足可能导致邮件服务器无法正常工作。</p>"
+
+  low_quota:
+    title: "🚫️ 您的邮箱已满！"
+    body: "您好，
+      <p>您的邮箱已达到容量上限。请清空收件箱或联系管理员为您调整配额。</p><p><strong>存储上限：</strong> {storage_limit}<br /><strong>已用存储：</strong> {storage_usage}<br /><br /><strong>数量上限：</strong> {count_limit}<br /><strong>当前数量：</strong> {count_usage}</p><p>在释放空间之前，邮件服务器将拒收新邮件。</p>"
+
+  leaked_password:
+    title: "⚠️ 账户密码泄露！"
+    body: "您好，
+      <p>检测到账户 <strong>{email}</strong> 可能被入侵。我们在最近一小时内发现来自多个 IP 地址的多次登录：</p><pre><code>{logs}</code></pre><p>出于安全考虑，该邮箱已被立即停用。</p>"
+
+  suspicious_activity:
+    title: "⚠️ 可疑的 IP 活动！"
+    body: "您好，
+      <p>我们在最近一小时内发现来自 IP <strong>{ip}</strong> 超过 <strong>60 次尝试</strong>。详情请查看日志。未采取封禁或其他自动化措施。</p>"
+
+  dnsbl:
+    title: "⚠️ 您的 IP 被列入 DNSBL"
+    body: "您好，
+      <p>似乎您的邮件服务器 IP 已被列入部分监控的 DNSBL 服务器。您的邮件可能会被暂时拒收。</p>"
+    server: "DNSBL 服务器"
+    response: "响应"
+
+
+
+paging:
+  label_set: "显示"
+  label_to: "跳转到"
+  15rows: 15 行
+  50rows: 50 行
+  100rows: 100 行

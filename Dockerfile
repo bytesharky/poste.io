@@ -23,14 +23,26 @@ WORKDIR /
 # 隐藏 PRO 菜单
 ARG EXTRA_CSS="<style>\n.pro,.nav-sidebar p.alert{display:none !important}\nbutton#login-passkey,button#passkey-login-btn{display:flex;align-items:center;justify-content:center;margin:auto;gap:5px}\n</style>"
 
+# 复制补充翻译助手
+COPY update_label.sh /usr/local/bin/
+
 # 将 STYLE 内容插入 </head> 前
 # 替换 LOGO
-RUN sed -i "s@</head>@${EXTRA_CSS}\n</head>@" /opt/www/webmail/skins/elastic/templates/includes/layout.html && \
+RUN chmod +x /usr/local/bin/update_label.sh && \
+    echo "CSS injection" && \
+    sed -i "s@</head>@${EXTRA_CSS}\n</head>@" /opt/www/webmail/skins/elastic/templates/includes/layout.html && \
     sed -i "s@</head>@${EXTRA_CSS}\n</head>@" /opt/admin/templates/base.html.twig && \
+    echo "Replace the logo" && \
     sed -i "s@images/logo.svg@images/logo.png@" /opt/www/webmail/skins/elastic/watermark.html && \
     sed -i "s@images/logo.svg@images/logo.png@" /opt/www/webmail/skins/elastic/templates/login.html && \
     sed -i "s@images/logo.svg@images/logo.png@" /opt/www/webmail/skins/elastic/templates/includes/menu.html && \
-    sed -i "s@background-blend-mode:\s\+soft-light;@background-blend-mode: color-dodge;@" /opt/www/webmail/skins/elastic/watermark.html
+    sed -i "s@background-blend-mode:\s\+soft-light;@background-blend-mode: color-dodge;@" /opt/www/webmail/skins/elastic/watermark.html && \
+    echo "Add plugins localization" && \
+    sed -i "s@ Login with Passkey@'.\$this->gettext('passkeyloginbtn').'@"  /opt/www/webmail/plugins/poste_passkey_login/poste_passkey_login.php && \
+    sed -i '/function passkey_button(\$args)/,/{/{s@{@&\n        \$this->add_texts("localization/");@;}' /opt/www/webmail/plugins/poste_passkey_login/poste_passkey_login.php && \
+    sed -i "s@>Administration<@><roundcube:label name=""Administration"" /><@" /opt/www/webmail/skins/elastic/templates/login.html && \
+    update_label.sh "/opt/www/webmail/program/localization/en_US/labels.inc" "Administration" "Administration" && \
+    update_label.sh "/opt/www/webmail/program/localization/zh_TW/labels.inc" "Administration" "主控台"
     
 # 补充中文翻译（webmail）
 # 替换 LOGO

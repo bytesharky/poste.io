@@ -790,3 +790,5 @@ $labels['helplistkeyboardnavmessages'] = "方向键左/右：展开/折叠消息
 回车键：打开选中/焦点所在消息。
 删除键：移动选中消息到垃圾箱。";
 $labels['helplistkeyboardnavcontacts'] = "回车：打开选中的联系人";
+
+$labels['Administration'] = "控制台";

@@ -27,6 +27,9 @@ img#logo { pointer-events: none; user-select: none;}\n\
 button#login-passkey,button#passkey-login-btn { display:flex; align-items:center; justify-content:center; margin:auto; gap:5px; }\n\
 </style>"
 
+# 控制台登录页下方的链接地址
+ARG MY_URL="https://github.com/bytesharky/poste.io"
+
 # 复制助手脚本
 COPY update_label.sh /usr/local/bin/
 
@@ -34,6 +37,7 @@ COPY update_label.sh /usr/local/bin/
 # 替换 LOGO 路径
 # 替换 插件本地化翻译
 RUN chmod +x /usr/local/bin/update_label.sh && \
+    sed -i 's@\(<a href="\)https://poste.io\(" style="color: black;">\)poste@\1'${MY_URL}'\2sharky - poste@' /opt/admin/templates/Base/Security/login.html.twig && \
     echo "CSS injection" && \
     sed -i "s@</head>@${EXTRA_CSS}\n</head>@" /opt/www/webmail/skins/elastic/templates/includes/layout.html && \
     sed -i "s@</head>@${EXTRA_CSS}\n</head>@" /opt/admin/templates/base.html.twig && \

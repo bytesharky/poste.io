@@ -20,14 +20,19 @@ ENV DISABLE_CLAMAV=TRUE \
 
 WORKDIR /
 
-# 隐藏 PRO 菜单
-ARG EXTRA_CSS="<style>\n.pro,.nav-sidebar p.alert{display:none !important}\nbutton#login-passkey,button#passkey-login-btn{display:flex;align-items:center;justify-content:center;margin:auto;gap:5px}\n</style>"
+# 样式微调和隐藏 PRO 菜单
+ARG EXTRA_CSS="<style>\n\
+.pro,.nav-sidebar p.alert{ display:none !important}\n\
+img#logo { pointer-events: none; user-select: none;}\n\
+button#login-passkey,button#passkey-login-btn { display:flex; align-items:center; justify-content:center; margin:auto; gap:5px; }\n\
+</style>"
 
-# 复制补充翻译助手
+# 复制助手脚本
 COPY update_label.sh /usr/local/bin/
 
 # 将 STYLE 内容插入 </head> 前
-# 替换 LOGO
+# 替换 LOGO 路径
+# 替换 插件本地化翻译
 RUN chmod +x /usr/local/bin/update_label.sh && \
     echo "CSS injection" && \
     sed -i "s@</head>@${EXTRA_CSS}\n</head>@" /opt/www/webmail/skins/elastic/templates/includes/layout.html && \
@@ -44,8 +49,7 @@ RUN chmod +x /usr/local/bin/update_label.sh && \
     update_label.sh "/opt/www/webmail/program/localization/en_US/labels.inc" "Administration" "Administration" && \
     update_label.sh "/opt/www/webmail/program/localization/zh_TW/labels.inc" "Administration" "主控台"
     
-# 补充中文翻译（webmail）
-# 替换 LOGO
+# 补充中文翻译（webmail）和新的 LOGO 文件
 COPY webmail/ /opt/www/webmail/
 
 # 补充中文翻译（admin）

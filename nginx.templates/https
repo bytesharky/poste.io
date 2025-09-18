@@ -10,6 +10,11 @@ server {
         try_files $uri @app;
     }
 
+    location / { 
+        rewrite ^/$ /webmail/ last;
+        rewrite ^(.*)$ /webmail$1 last;
+    }
+        
     location /admin {
         return 301 https://$host$request_uri;
     }
@@ -19,6 +24,7 @@ server {
     }
 
     location /webmail {
+        internal;
         return 301 https://$host$request_uri;
     }
 
@@ -83,6 +89,15 @@ server {
 
     location ~ ^/webmail/(config|temp|logs|CHANGELOG|INSTALL|README\.md|LICENSE|UPGRADING|.htaccess|composer\.json|composer\.lock|composer\.json-dist)/ {
         deny all;
+    }
+
+    location / { 
+        rewrite ^/$ /webmail/ last;
+        rewrite ^(.*)$ /webmail$1 last;
+    }
+
+    location /webmail {
+        internal;
     }
 
     location /policy {

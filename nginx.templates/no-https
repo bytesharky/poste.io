@@ -14,6 +14,15 @@ server {
         deny all;
     }
 
+    location / { 
+        rewrite ^/$ /webmail/ last;
+        rewrite ^(.*)$ /webmail$1 last;
+    }
+
+    location /webmail {
+        internal;
+    }
+
     location /policy {
         include /etc/nginx/fastcgi_params;
         fastcgi_param SCRIPT_FILENAME /opt/www/policy/index.php;

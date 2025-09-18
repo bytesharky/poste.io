@@ -37,6 +37,7 @@ COPY update_label.sh /usr/local/bin/
 # 替换 LOGO 路径
 # 替换 插件本地化翻译
 RUN chmod +x /usr/local/bin/update_label.sh && \
+    sed -i 's@"/webmail"@"/"@' /opt/admin/templates/base.html.twig && \
     sed -i 's@\(<a href="\)https://poste.io\(" style="color: black;">\)poste@\1'${MY_URL}'\2sharky - poste@' /opt/admin/templates/Base/Security/login.html.twig && \
     echo "CSS injection" && \
     sed -i "s@</head>@${EXTRA_CSS}\n</head>@" /opt/www/webmail/skins/elastic/templates/includes/layout.html && \
@@ -58,6 +59,9 @@ COPY webmail/ /opt/www/webmail/
 
 # 补充中文翻译（admin）
 COPY admin/ /opt/admin/
+
+# 拷贝nginx模板（隐藏路径webmail前缀）
+COPY nginx.templates/ /etc/nginx/sites-enabled.templates/
 
 # 定义数据卷
 VOLUME ["/data"]

@@ -1,0 +1,119 @@
+server {
+    listen __HTTP_PORT__;
+    listen [::]:__HTTP_PORT__;
+    absolute_redirect off;
+
+    client_max_body_size 100m;
+
+    root /opt/www;
+    index index.php index.html index.htm;
+
+    server_name localhost mail.* discover.* autoconfig.*;
+
+    location ~ ^/webmail/(config|temp|logs|CHANGELOG|INSTALL|README\.md|LICENSE|UPGRADING|.htaccess|composer\.json|composer\.lock|composer\.json-dist)/ {
+        deny all;
+    }
+
+    location /policy {
+        include /etc/nginx/fastcgi_params;
+        fastcgi_param SCRIPT_FILENAME /opt/www/policy/index.php;
+        fastcgi_pass unix:/var/run/php-fpm.sock;
+    }
+
+    location /doc {
+        try_files $uri $uri.html @extensionless-php;
+    }
+
+    location /autodiscover {
+        try_files $uri $uri.html @extensionless-php;
+    }
+
+    location /mail {
+        try_files $uri $uri.html @extensionless-php;
+    }
+
+    location /.well-known/caldav {
+        return 301 /dav/;
+    }
+
+    location /.well-known/carddav {
+        return 301 /dav/;
+    }
+
+    location /.well-known {
+        try_files $uri $uri.html @extensionless-php;
+    }
+
+    location @extensionless-php {
+        rewrite ^(.*)$ $1.php last;
+    }
+
+    location /api {
+        return 301 /admin$request_uri;
+    }
+
+    location = /admin {
+        return 301 /admin/;
+    }
+
+    location ~/admin/haraka/(\d+)/ws {
+        auth_request .auth;
+        proxy_pass http://127.0.0.1:$1/;
+        proxy_http_version 1.1;
+        proxy_set_header Upgrade $http_upgrade;
+        proxy_set_header Connection "upgrade";
+    }
+
+    location ~/admin/haraka/(\d+)/(.*)$ {
+        auth_request .auth;
+        proxy_pass http://127.0.0.1:$1/$2;
+    }
+
+    location /admin/rspamd/ {
+        auth_request .auth;
+        proxy_pass  http://127.0.0.1:11334/;
+        proxy_set_header Host $http_host;
+        proxy_set_header X-Real-IP "";
+        proxy_set_header X-Forwarded-For "";
+    }
+
+    location .auth {
+        proxy_pass_request_body off;
+        proxy_set_header Content-Length "";
+        proxy_set_header X-Original-URI $request_uri;
+        proxy_pass http://localhost:__HTTP_PORT__/admin/auth-ws;
+    }
+
+    location /admin {
+        alias /opt/admin/public;
+        try_files $uri @app;
+    }
+
+    location /dav {
+        alias /opt/admin/public;
+        try_files $uri @app;
+    }
+
+    location /Microsoft-Server-ActiveSync {
+        include /etc/nginx/fastcgi_params;
+        fastcgi_param SCRIPT_FILENAME /opt/z-push/index.php;
+        fastcgi_pass unix:/var/run/php-fpm.sock;
+        # Z-Push Ping command will be alive for 470s, but be safe
+        fastcgi_read_timeout 630;
+    }
+
+    location @app {
+        fastcgi_pass unix:/var/run/php-fpm-admin.sock;
+        include fastcgi_params;
+        fastcgi_param SCRIPT_FILENAME /opt/admin/public/index.php;
+        fastcgi_param SCRIPT_NAME     /admin/index.php;
+    }
+
+    location ~ \.php$ {
+            fastcgi_split_path_info ^(.+\.php)(/.+)$;
+            fastcgi_pass unix:/var/run/php-fpm.sock;
+            fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+            fastcgi_index index.php;
+            include fastcgi_params;
+    }
+}
